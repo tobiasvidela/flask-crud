@@ -1,2 +1,2 @@
-# flask-crud
-This is a personal project to put into work my knowledge in Python and Docker, and also learn PostgreSQL.
+# SGI | Sistema de Gestión Integral
+Este es un sistema destinado a pequeñas y medianas empresas en crecimiento que necesitan mejorar sus procesos de gestión y administración.

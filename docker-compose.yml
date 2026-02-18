@@ -1,25 +1,26 @@
 services:
   flask_app:
-    container_name: flask_app
+    container_name: sgi_backend
     image: tobiasvidelaug14/flask_app:1.0.0
-    build: .
+    build: 
+      context: ./backend
     ports:
       - "4000:4000"
-    environment:
-      - DB_URL=postgresql://postgres:postgres@flask_db:5432/postgres
+    env_file:
+      - .env
     depends_on:
       - flask_db
+    restart: unless-stopped
   flask_db:
-    container_name: flask_db
-    image: postgres:12
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+    container_name: sgi_db
+    image: postgres:15
+    env_file:
+      - .env
     volumes:
       - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
     
 volumes:
   pgdata: {}
