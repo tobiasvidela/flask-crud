@@ -56,6 +56,10 @@ Esto iniciará:
 - la API en http://localhost:4000
 - la base de datos en el puerto 5432
 
+> [!Warning] Recuerda: 
+>  - Levantar el servicio docker (`sudo systemctl enable --now docker`)
+>  - Usar `newgrp docker` y luego `docker ps` para comprobar
+
 ### 2. Ejecutar la interfaz gráfica
 
 En otra terminal:
