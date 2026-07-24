@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SGI Store{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{{ theme_class }}">
+  <nav>
+    <a href="{{ url_for('index') }}">Inicio</a>
+    <a href="{{ url_for('catalog') }}">Catálogo</a>
+    <a href="{{ url_for('cart') }}">Carrito</a>
+    <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+  </nav>
+  <main class="page">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

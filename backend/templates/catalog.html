@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Catálogo{% endblock %}
+{% block content %}
+<div class="catalog-header">
+  <h1>Catálogo</h1>
+  <p>Sesión actual: <strong>{{ customer_type_display }}</strong></p>
+</div>
+<div class="product-grid">
+  {% for product in products %}
+  <div class="product-card">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p><strong>Precio:</strong> ${{ product.price }}</p>
+    <form method="post" action="{{ url_for('add_to_cart') }}">
+      <input type="hidden" name="product_id" value="{{ product.id }}">
+      <button type="submit">Agregar al carrito</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
